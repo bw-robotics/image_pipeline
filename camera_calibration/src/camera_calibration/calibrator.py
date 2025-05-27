@@ -47,7 +47,7 @@ import tarfile
 import time
 from distutils.version import LooseVersion
 from enum import Enum
-from semver import VersionInfo
+# from semver import VersionInfo
 
 # Supported camera models
 class CAMERA_MODEL(Enum):
@@ -90,12 +90,12 @@ class ChessboardInfo():
                 "7x7_100"    : cv2.aruco.DICT_7X7_100,
                 "7x7_250"    : cv2.aruco.DICT_7X7_250,
                 "7x7_1000"    : cv2.aruco.DICT_7X7_1000}[aruco_dict])
-            if VersionInfo.parse(cv2.__version__) >= VersionInfo.parse('4.8.0'):
-                self.charuco_board = cv2.aruco.CharucoBoard((self.n_cols, self.n_rows), self.dim, self.marker_size,
-                        self.aruco_dict)
-            else:
-                self.charuco_board = cv2.aruco.CharucoBoard_create(self.n_cols, self.n_rows, self.dim, self.marker_size,
-                        self.aruco_dict)
+            # if VersionInfo.parse(cv2.__version__) >= VersionInfo.parse('4.8.0'):
+            #     self.charuco_board = cv2.aruco.CharucoBoard((self.n_cols, self.n_rows), self.dim, self.marker_size,
+            #             self.aruco_dict)
+            # else:
+            self.charuco_board = cv2.aruco.CharucoBoard_create(self.n_cols, self.n_rows, self.dim, self.marker_size,
+                    self.aruco_dict)
 
 
 # Make all private!!!!!
