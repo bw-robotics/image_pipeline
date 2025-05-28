@@ -84,6 +84,7 @@ class CameraCheckerNode(Node):
         self.board.n_cols = chess_size[0]
         self.board.n_rows = chess_size[1]
         self.board.dim = dim
+        print("CameraCheckerNode 1")
 
         # make sure n_cols is not smaller than n_rows, otherwise error computation will be off
         if self.board.n_cols < self.board.n_rows:

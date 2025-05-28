@@ -46,12 +46,15 @@ def main():
                       help="allow specified slop (in seconds) when pairing images from unsynchronized stereo cameras")
 
     options, _ = parser.parse_args(rclpy.utilities.remove_ros_args())
+    print("got here 1")
     rclpy.init()
-
+    print("got here 2")
     size = tuple([int(c) for c in options.size.split('x')])
     dim = float(options.square)
     approximate = float(options.approximate)
+    print("got here 3")
     node = CameraCheckerNode("cameracheck", size, dim, approximate)
+    print("got here 4")
     rclpy.spin(node)
 
 if __name__ == "__main__":
