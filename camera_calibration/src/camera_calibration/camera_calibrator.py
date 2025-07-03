@@ -280,7 +280,7 @@ class OpenCVCalibrationNode(CalibrationNode):
     def initWindow(self):
         cv2.namedWindow("display", cv2.WINDOW_NORMAL)
         cv2.setMouseCallback("display", self.on_mouse)
-        cv2.createTrackbar("Camera type: \n 0 : pinhole \n 1 : fisheye", "display", 0,1, self.on_model_change)
+        cv2.createTrackbar("Camera type: \n 0 : pinhole \n 1 : fisheye", "display", 1,1, self.on_model_change)
         cv2.createTrackbar("scale", "display", 0, 100, self.on_scale)
 
     @classmethod
@@ -311,9 +311,6 @@ class OpenCVCalibrationNode(CalibrationNode):
             print("Cannot change camera model until the first image has been received")
             return
 
-        self.c.set_cammodel( CAMERA_MODEL.PINHOLE if model_select_val < 0.5 else CAMERA_MODEL.FISHEYE)
-
-    def on_model_change(self, model_select_val):
         self.c.set_cammodel( CAMERA_MODEL.PINHOLE if model_select_val < 0.5 else CAMERA_MODEL.FISHEYE)
 
     def on_scale(self, scalevalue):
